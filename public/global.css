@@ -19,6 +19,9 @@ input {
 .message {
   color: #28313b !important;
 }
+h4 {
+  color: #28313b !important;
+}
 ul {
   list-style: none;
 }

@@ -20,4 +20,7 @@
     justify-content: space-between;
     align-items: center;
   }
+  h4 {
+    color: #28313b;
+  }
 </style>
