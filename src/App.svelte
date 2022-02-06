@@ -31,7 +31,6 @@
     feedback = [...feedback.filter((fb) => fb.id !== itemId)];
   };
   const addFeedBack = (e) => {
-    console.log(e.detail);
     const newFeedBAck = e.detail;
     feedback = [newFeedBAck, ...feedback];
   };
@@ -43,6 +42,6 @@
 
 <main class="container">
   <FeedbackForm on:add-new-feedback={addFeedBack} />
-  <FeedbackList {feedback} on:delete-feedback={deleteFeedBack} />
+  <FeedbackList on:delete-feedback={deleteFeedBack} />
   <FeedbackStats {average} {count} />
 </main>

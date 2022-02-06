@@ -1,7 +1,7 @@
 <script>
   import { createEventDispatcher } from "svelte";
   let selected = 10;
-  const ratingsValues = Array.from(Array(20).keys());
+  const ratingsValues = Array.from(Array(10).keys());
   const dispatch = createEventDispatcher();
   const onChange = (e) => {
     selected = e.currentTarget.value;
