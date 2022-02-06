@@ -7,11 +7,13 @@
   import Card from "./Card.svelte";
   import Button from "./Button.svelte";
   import RatingSelect from "./RatingSelect.svelte";
+
   let text = "";
   let rating = 10;
   let btnDisabled = true;
   let min = 10;
   let message;
+
   const handleSelect = (e) => (rating = e.detail);
   const handleInput = () => {
     if (text.trim().length <= min) {
