@@ -34,14 +34,15 @@
   }
   .rating li {
     position: relative;
-    background: #f4f4f4;
+    background-color: #f1dfd1;
+    background-image: linear-gradient(315deg, #f1dfd1 0%, #f6f0ea 74%);
+    box-shadow: 2px 2px 10px #a8a09a;
     width: 50px;
     height: 50px;
     padding: 10px;
     text-align: center;
-    border-radius: 50%;
+    border-radius: 12px;
     font-size: 19px;
-    border: 1px #eee solid;
     transition: 0.3s;
   }
   .rating li label {
@@ -56,7 +57,8 @@
     cursor: pointer;
   }
   .rating li:hover {
-    background: #ff6a95;
+    background-color: #485461;
+    background-image: linear-gradient(315deg, #485461 0%, #28313b 74%);
     color: #fff;
   }
   /* Make actual radio select invisible */

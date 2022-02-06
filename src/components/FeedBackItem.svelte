@@ -1,16 +1,12 @@
 <script>
-  // import {FeedbackStore} from '../stores'
+  import { FeedBackStore } from "../stores";
   import Card from "./Card.svelte";
-  import { createEventDispatcher } from "svelte";
   export let item;
 
-  const dispatch = createEventDispatcher();
-
   const handleDelete = (itemId) => {
-    dispatch("delete-feedback", itemId);
-    // FeedbackStore.update((currentFeedback) => {
-    //   return currentFeedback.filter(item => item.id != itemId)
-    // })
+    FeedBackStore.update((currentFeedback) => {
+      return currentFeedback.filter((item) => item.id != itemId);
+    });
   };
 </script>
 
@@ -31,10 +27,11 @@
     left: -10px;
     width: 50px;
     height: 50px;
-    background: #ff6a95;
+    background-color: #485461;
+    background-image: linear-gradient(315deg, #485461 0%, #28313b 74%);
     color: #fff;
     border: 1px #eee solid;
-    border-radius: 50%;
+    border-radius: 12px;
     padding: 10px;
     text-align: center;
     font-size: 19px;

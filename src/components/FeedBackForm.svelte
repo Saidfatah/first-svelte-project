@@ -1,8 +1,7 @@
 <script>
+  import { FeedBackStore } from "../stores";
+
   import { v4 as uuidv4 } from "uuid";
-  // import {FeedbackStore} from '../stores'
-  import { createEventDispatcher } from "svelte";
-  const dispatch = createEventDispatcher();
 
   import Card from "./Card.svelte";
   import Button from "./Button.svelte";
@@ -31,10 +30,9 @@
         text,
         rating: +rating,
       };
-      dispatch("add-new-feedback", newFeedback);
-      // FeedbackStore.update((currentFeedback) => {
-      //   return [newFeedback, ...currentFeedback]
-      // })
+      FeedBackStore.update((currentFeedback) => {
+        return [newFeedback, ...currentFeedback];
+      });
       text = "";
     }
   };
@@ -85,6 +83,7 @@
     flex-grow: 2;
     border: none;
     font-size: 16px;
+    background: center;
   }
   input:focus {
     outline: none;
@@ -92,6 +91,6 @@
   .message {
     padding-top: 10px;
     text-align: center;
-    color: rebeccapurple;
+    color: #28313b;
   }
 </style>

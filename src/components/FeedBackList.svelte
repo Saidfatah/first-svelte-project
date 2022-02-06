@@ -7,6 +7,6 @@
 
 {#each $FeedBackStore as fb (fb.id)}
   <div in:scale out:fade={{ duration: 500 }}>
-    <FeedBackItem item={fb} on:delete-feedback />
+    <FeedBackItem item={fb} />
   </div>
 {/each}
