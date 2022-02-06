@@ -1,91 +1,37 @@
 <script>
-  let firstName = "said";
-  let lastName = "fatah";
-  let color = "red";
-  let counter = 0;
+  import FeedbackList from "./components/FeedBackList.svelte";
+  // import FeedbackForm from './components/FeedbackForm.svelte'
+  // import FeedbackStats from './components/FeedbackStats.svelte'
 
-  let users = [
+  let feedback = [
     {
       id: 1,
-      name: "Soumia ",
+      text: " feedback 1",
+      rating: 5,
     },
     {
       id: 2,
-      name: "Ayoub ",
+      text: " feedback 2",
+      rating: 5,
     },
     {
       id: 3,
-      name: "Zakaria ",
+      text: " feedback 3",
+      rating: 3,
+    },
+    {
+      id: 4,
+      text: " feedback 1",
+      rating: 5,
     },
   ];
 
-  let showDescription = false;
-  $: name = firstName + " " + lastName;
-
-  setInterval(() => {
-    counter++;
-  }, 100);
-
-  const toggle = () => {
-    color = color == "red" ? "blue" : "red";
-  };
-  const toggleDescription = () => {
-    showDescription = !showDescription;
-  };
-  const addUser = () => {
-    users = [
-      ...users,
-      {
-        id: users.length + 1,
-        name: "random name lol ",
-      },
-    ];
+  const deleteFeedBack = (e) => {
+    const itemId = e.detail;
+    feedback = [...feedback.filter((fb) => fb.id !== itemId)];
   };
 </script>
 
-<main>
-  <h1 style="color: {color};">Hello {name}!</h1>
-  <h1 style="color: {color};">counter {counter}!</h1>
-  <div>
-    {#if showDescription}
-      <p>I'm a software engineer</p>
-    {/if}
-    <button on:click={toggleDescription}>
-      {#if showDescription}
-        hide description
-      {:else}
-        show description
-      {/if}
-    </button>
-  </div>
-  <button on:click={toggle}>toggle</button>
-
-  <h1>Users</h1>
-  <button on:click={addUser}>new Random user</button>
-
-  {#each users as user (user.id)}
-    <h2>{user.id} : {user.name}</h2>
-  {/each}
+<main class="container">
+  <FeedbackList {feedback} on:delete-feedback={deleteFeedBack} />
 </main>
-
-<style>
-  main {
-    text-align: center;
-    padding: 1em;
-    max-width: 240px;
-    margin: 0 auto;
-  }
-
-  h1 {
-    color: #ff3e00;
-    text-transform: uppercase;
-    font-size: 4em;
-    font-weight: 100;
-  }
-
-  @media (min-width: 640px) {
-    main {
-      max-width: none;
-    }
-  }
-</style>
