@@ -1,7 +1,7 @@
 <script>
   import FeedbackList from "./components/FeedBackList.svelte";
+  import FeedbackStats from "./components/FeedbackStats.svelte";
   // import FeedbackForm from './components/FeedbackForm.svelte'
-  // import FeedbackStats from './components/FeedbackStats.svelte'
 
   let feedback = [
     {
@@ -30,8 +30,13 @@
     const itemId = e.detail;
     feedback = [...feedback.filter((fb) => fb.id !== itemId)];
   };
+
+  $: count = feedback.length;
+  $: average =
+    feedback.reduce((a, { rating }) => a + rating, 0) / feedback.length;
 </script>
 
 <main class="container">
   <FeedbackList {feedback} on:delete-feedback={deleteFeedBack} />
+  <FeedbackStats {average} {count} />
 </main>
